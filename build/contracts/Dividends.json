@@ -22800,7 +22800,7 @@
         1643
       ],
       "Math": [
-        6553
+        6671
       ],
       "Ownable": [
         104
@@ -22918,7 +22918,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 4550,
-        "sourceUnit": 6554,
+        "sourceUnit": 6672,
         "src": "418:31:20",
         "symbolAliases": [],
         "unitAlias": ""
@@ -22997,7 +22997,7 @@
               "id": 3415,
               "name": "Math",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 6553,
+              "referencedDeclaration": 6671,
               "src": "538:4:20"
             },
             "nodeType": "UsingForDirective",
@@ -34802,7 +34802,7 @@
                       "lValueRequested": false,
                       "memberName": "sqrt",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6552,
+                      "referencedDeclaration": 6670,
                       "src": "8757:16:20",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -36789,7 +36789,7 @@
         1643
       ],
       "Math": [
-        6553
+        6671
       ],
       "Ownable": [
         104
@@ -36907,7 +36907,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 4550,
-        "sourceUnit": 6554,
+        "sourceUnit": 6672,
         "src": "418:31:20",
         "symbolAliases": [],
         "unitAlias": ""
@@ -36986,7 +36986,7 @@
               "id": 3415,
               "name": "Math",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 6553,
+              "referencedDeclaration": 6671,
               "src": "538:4:20"
             },
             "nodeType": "UsingForDirective",
@@ -48791,7 +48791,7 @@
                       "lValueRequested": false,
                       "memberName": "sqrt",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6552,
+                      "referencedDeclaration": 6670,
                       "src": "8757:16:20",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -50744,7 +50744,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-01-04T17:45:53.526Z",
+  "updatedAt": "2022-01-04T18:12:39.745Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

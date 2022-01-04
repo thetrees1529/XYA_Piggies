@@ -21,6 +21,8 @@ contract Items is Context, Ownable, ERC1155, ReentrancyGuard, FeeTakersERC20 {
 
     Item[] _items;
 
+    mapping(uint => string) _itemNames;
+
     constructor(string memory uri, IERC20 coinkx) ERC1155("Piggie Items") FeeTakersERC20(coinkx) {
         _setURI(uri);
         _coinkx = coinkx;
@@ -32,6 +34,31 @@ contract Items is Context, Ownable, ERC1155, ReentrancyGuard, FeeTakersERC20 {
 
     function listingByIndex(uint index) public view returns(Item memory) {
         return _items[index];
+    }
+
+    function getListings(uint amount, uint skip) public view returns(Item[] memory items) {
+        items = new Item[](amount);
+        uint endingIndex = items.length - skip;
+        uint startingIndex = endingIndex - amount + 1;
+        for(uint i = startingIndex; i < endingIndex; i ++) {
+            items[i - startingIndex] = _items[i];
+        }
+    }
+
+    function listingCount() public view returns(uint) {
+        return _items.length;
+    }
+
+    function setItemName(uint tokenId, string memory name) public onlyOwner {
+        _itemNames[tokenId] = name;
+    }
+
+    function getItemName(uint tokenId) public view returns(string memory) {
+        return _itemNames[tokenId];
+    }
+
+    function mintTo(uint tokenId, uint amount, address to) public onlyOwner {
+        _mint(to, tokenId, amount, "");
     }
 
     function list(uint tokenId, uint price, uint stock) public onlyOwner {
