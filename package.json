@@ -17,7 +17,7 @@
     "axios": "^0.24.0",
     "ethers": "^5.5.2",
     "express": "^4.17.1",
-    "luk1529_solidity": "^11.0.0",
+    "luk1529_solidity": "^11.0.2",
     "node-fetch": "^3.1.0",
     "truffle-flattener": "github:jplew/truffle-flattener"
   }

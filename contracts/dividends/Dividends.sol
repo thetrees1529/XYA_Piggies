@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "luk1529_solidity/contracts/access/Admin.sol";
 import "luk1529_solidity/contracts/token/ERC721EnumerableUser.sol";
 import "luk1529_solidity/contracts/token/ERC20User.sol";
 import "../attributes/AttributeManagerV2.sol";
@@ -11,7 +12,7 @@ import "../game/TamagotchiV2.sol";
 import "../external/Attributes.sol";
 import "../libraries/Math.sol";
 
-contract Dividends is Context, Ownable, ERC721EnumerableUser, ERC20User {
+contract Dividends is Context, Ownable, Admin, ERC721EnumerableUser, ERC20User {
     using Math for uint;
     event Claimed(address indexed player, uint indexed pigId, uint value);
     constructor(IERC721Enumerable piggies, IERC20 coink, AttributeManagerV2 attributeManager, TamagotchiV2 tamagotchi, Attributes attributes, uint epochLength) ERC20User(coink) ERC721EnumerableUser(piggies) {
@@ -30,6 +31,7 @@ contract Dividends is Context, Ownable, ERC721EnumerableUser, ERC20User {
     }
 
     struct PigData {
+        bool void;
         bool registered;
         bool claimed;
         uint allocPoints;
@@ -175,6 +177,8 @@ contract Dividends is Context, Ownable, ERC721EnumerableUser, ERC20User {
         uint epochNumber = currentEpochNumber();
         Epoch storage epoch = _epochs[epochNumber];
 
+        require(!epoch.pigs[pigId].void, "This pig is not allowed to register during this epoch.");
+
         if(!epoch.pigs[pigId].registered) {
             _accountForRegistering(pigId);
             epoch.pigs[pigId].registered = true;
@@ -228,6 +232,17 @@ contract Dividends is Context, Ownable, ERC721EnumerableUser, ERC20User {
 
     function getMultipliers() public view returns(Multiplier[] memory) {
         return _multipliers;
+    }
+
+    function voidPig(uint pigId) public onlyAdmin {
+        uint epochNumber = currentEpochNumber() - 1;
+        Epoch storage epoch = _epochs[epochNumber];
+        PigData storage pig = epoch.pigs[pigId];
+        if(!pig.void && pig.registered) {
+            epoch.totalAllocPoints -= pig.allocPoints;
+            pig.allocPoints -= pig.allocPoints;
+            pig.void = true;
+        }
     }
 
     function setMultipliers(Multiplier[] calldata multipliers) public onlyOwner {

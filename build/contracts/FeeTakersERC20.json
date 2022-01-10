@@ -1,0 +1,4570 @@
+{
+  "contractName": "FeeTakersERC20",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "FeeSent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFeeTakersLength",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getFeeTakerAt",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "addr",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "points",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct FeeTakersERC20.FeeTaker",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "points",
+          "type": "uint256"
+        }
+      ],
+      "name": "addToFeeTakers",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "removeFromFeeTakers",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"FeeSent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"points\",\"type\":\"uint256\"}],\"name\":\"addToFeeTakers\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getFeeTakerAt\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"points\",\"type\":\"uint256\"}],\"internalType\":\"struct FeeTakersERC20.FeeTaker\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFeeTakersLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"removeFromFeeTakers\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"luk1529_solidity/contracts/fee/FeeTakersERC20.sol\":\"FeeTakersERC20\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0xa1b27b3f44ff825974e5268e8f63ad3b03add5b464880d860fbb8cae043e17f7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ad0fb4425453220f15bdb8c4e009052839804bb725797b6d8c02ee2271bc3c23\",\"dweb:/ipfs/QmPtjdMxzEifPUEUa6cKX1yfTWjaZV6QtdwMdN6bEL9FBM\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xc1452b054778f1926419196ef12ae200758a4ee728df69ae1cd13e5c16ca7df7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4cb252ec7657ba7a91be688cbd263090aa5379e504f488a62d06198e0d630322\",\"dweb:/ipfs/QmW56fDiDirhWfWiKrycXE5UY6tTNtFrYx39ipnSs8mkYb\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x7736c187e6f1358c1ea9350a2a21aa8528dec1c2f43b374a9067465a3a51f5d3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4fd625dca17657403af518cc6c8ab5c54c58898cf6e912ca2e1b0f3194ad0405\",\"dweb:/ipfs/QmQVv7YeeKmaS11bg7YDTeeGDk6i7sV8LMMfohaLM4SiRu\"]},\"luk1529_solidity/contracts/fee/FeeTakersERC20.sol\":{\"keccak256\":\"0x5719b3024999e46567418fbbca3824e59b7e74f322ce3ebc5c14d536584d523d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d6fd2c4d49dd84339506f412e98ea060bb6b1a8c44d40099febee6e4a1c843a4\",\"dweb:/ipfs/QmSf5b34D3dr9xd1gZUH6PQ5EeeEcrgMbob3jb8rh3WiVu\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "//SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\nimport \"@openzeppelin/contracts/access/Ownable.sol\";\r\nimport \"@openzeppelin/contracts/token/ERC20/IERC20.sol\";\r\n\r\nabstract contract FeeTakersERC20 is Ownable{\r\n    IERC20 _token;\r\n\r\n    constructor(IERC20 token) {\r\n        _token = token;\r\n    }\r\n\r\n    struct FeeTaker {\r\n        address addr;\r\n        uint points;\r\n    }\r\n    FeeTaker[] _feeTakers;\r\n\r\n    event FeeSent(address to, uint amount);    \r\n\r\n    //manage where profit is sent to\r\n    function getFeeTakersLength() public view onlyOwner returns(uint) {\r\n        return _feeTakers.length;\r\n    }\r\n    function getFeeTakerAt(uint index) public view onlyOwner returns(FeeTaker memory) {\r\n        return _feeTakers[index];\r\n    }\r\n    function addToFeeTakers(address addr, uint points) public onlyOwner {\r\n        _feeTakers.push(FeeTaker(addr, points));\r\n    }\r\n    function removeFromFeeTakers(uint index) public onlyOwner {\r\n        _feeTakers[index] = _feeTakers[_feeTakers.length - 1];\r\n        _feeTakers.pop();\r\n    }\r\n\r\n    function _distributeFee(uint fee) internal {\r\n        uint feePoints;\r\n        uint feePerPoint;\r\n        for(uint i; i < _feeTakers.length; i ++) {\r\n            feePoints += _feeTakers[i].points;\r\n        }\r\n        if(feePoints > 0) {\r\n            feePerPoint = fee / feePoints;\r\n        }\r\n        for(uint i; i < getFeeTakersLength(); i ++) {\r\n            FeeTaker storage feeTaker = _feeTakers[i];\r\n            address feeTakerAddr = feeTaker.addr;\r\n            uint toSend = feeTaker.points * feePerPoint;\r\n            _token.transfer(feeTakerAddr, toSend);\r\n            emit FeeSent(feeTakerAddr, toSend);\r\n        }\r\n    }\r\n}",
+  "sourcePath": "luk1529_solidity\\contracts\\fee\\FeeTakersERC20.sol",
+  "ast": {
+    "absolutePath": "luk1529_solidity/contracts/fee/FeeTakersERC20.sol",
+    "exportedSymbols": {
+      "Context": [
+        1962
+      ],
+      "FeeTakersERC20": [
+        2188
+      ],
+      "IERC20": [
+        1496
+      ],
+      "Ownable": [
+        104
+      ]
+    },
+    "id": 2189,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2000,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:13"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/access/Ownable.sol",
+        "file": "@openzeppelin/contracts/access/Ownable.sol",
+        "id": 2001,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2189,
+        "sourceUnit": 105,
+        "src": "57:52:13",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "id": 2002,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2189,
+        "sourceUnit": 1497,
+        "src": "111:56:13",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 2003,
+              "name": "Ownable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 104,
+              "src": "207:7:13"
+            },
+            "id": 2004,
+            "nodeType": "InheritanceSpecifier",
+            "src": "207:7:13"
+          }
+        ],
+        "canonicalName": "FeeTakersERC20",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 2188,
+        "linearizedBaseContracts": [
+          2188,
+          104,
+          1962
+        ],
+        "name": "FeeTakersERC20",
+        "nameLocation": "189:14:13",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 2007,
+            "mutability": "mutable",
+            "name": "_token",
+            "nameLocation": "228:6:13",
+            "nodeType": "VariableDeclaration",
+            "scope": 2188,
+            "src": "221:13:13",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IERC20_$1496",
+              "typeString": "contract IERC20"
+            },
+            "typeName": {
+              "id": 2006,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 2005,
+                "name": "IERC20",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 1496,
+                "src": "221:6:13"
+              },
+              "referencedDeclaration": 1496,
+              "src": "221:6:13",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IERC20_$1496",
+                "typeString": "contract IERC20"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2017,
+              "nodeType": "Block",
+              "src": "269:33:13",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 2015,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 2013,
+                      "name": "_token",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2007,
+                      "src": "280:6:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$1496",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 2014,
+                      "name": "token",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2010,
+                      "src": "289:5:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$1496",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "src": "280:14:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$1496",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "id": 2016,
+                  "nodeType": "ExpressionStatement",
+                  "src": "280:14:13"
+                }
+              ]
+            },
+            "id": 2018,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2011,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2010,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "262:5:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2018,
+                  "src": "255:12:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$1496",
+                    "typeString": "contract IERC20"
+                  },
+                  "typeName": {
+                    "id": 2009,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 2008,
+                      "name": "IERC20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1496,
+                      "src": "255:6:13"
+                    },
+                    "referencedDeclaration": 1496,
+                    "src": "255:6:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$1496",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "254:14:13"
+            },
+            "returnParameters": {
+              "id": 2012,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "269:0:13"
+            },
+            "scope": 2188,
+            "src": "243:59:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "canonicalName": "FeeTakersERC20.FeeTaker",
+            "id": 2023,
+            "members": [
+              {
+                "constant": false,
+                "id": 2020,
+                "mutability": "mutable",
+                "name": "addr",
+                "nameLocation": "345:4:13",
+                "nodeType": "VariableDeclaration",
+                "scope": 2023,
+                "src": "337:12:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2019,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "337:7:13",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2022,
+                "mutability": "mutable",
+                "name": "points",
+                "nameLocation": "365:6:13",
+                "nodeType": "VariableDeclaration",
+                "scope": 2023,
+                "src": "360:11:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2021,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "360:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "FeeTaker",
+            "nameLocation": "317:8:13",
+            "nodeType": "StructDefinition",
+            "scope": 2188,
+            "src": "310:69:13",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 2027,
+            "mutability": "mutable",
+            "name": "_feeTakers",
+            "nameLocation": "396:10:13",
+            "nodeType": "VariableDeclaration",
+            "scope": 2188,
+            "src": "385:21:13",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+              "typeString": "struct FeeTakersERC20.FeeTaker[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 2025,
+                "nodeType": "UserDefinedTypeName",
+                "pathNode": {
+                  "id": 2024,
+                  "name": "FeeTaker",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 2023,
+                  "src": "385:8:13"
+                },
+                "referencedDeclaration": 2023,
+                "src": "385:8:13",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_FeeTaker_$2023_storage_ptr",
+                  "typeString": "struct FeeTakersERC20.FeeTaker"
+                }
+              },
+              "id": 2026,
+              "nodeType": "ArrayTypeName",
+              "src": "385:10:13",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage_ptr",
+                "typeString": "struct FeeTakersERC20.FeeTaker[]"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "anonymous": false,
+            "id": 2033,
+            "name": "FeeSent",
+            "nameLocation": "421:7:13",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2032,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2029,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "437:2:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2033,
+                  "src": "429:10:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2028,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "429:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2031,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "446:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2033,
+                  "src": "441:11:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2030,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "441:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "428:25:13"
+            },
+            "src": "415:39:13"
+          },
+          {
+            "body": {
+              "id": 2043,
+              "nodeType": "Block",
+              "src": "570:43:13",
+              "statements": [
+                {
+                  "expression": {
+                    "expression": {
+                      "id": 2040,
+                      "name": "_feeTakers",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2027,
+                      "src": "588:10:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                        "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                      }
+                    },
+                    "id": 2041,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "src": "588:17:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 2039,
+                  "id": 2042,
+                  "nodeType": "Return",
+                  "src": "581:24:13"
+                }
+              ]
+            },
+            "functionSelector": "a19ab0e0",
+            "id": 2044,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 2036,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 2035,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 46,
+                  "src": "546:9:13"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "546:9:13"
+              }
+            ],
+            "name": "getFeeTakersLength",
+            "nameLocation": "513:18:13",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2034,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "531:2:13"
+            },
+            "returnParameters": {
+              "id": 2039,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2038,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2044,
+                  "src": "564:4:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2037,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "564:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "563:6:13"
+            },
+            "scope": 2188,
+            "src": "504:109:13",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2058,
+              "nodeType": "Block",
+              "src": "701:43:13",
+              "statements": [
+                {
+                  "expression": {
+                    "baseExpression": {
+                      "id": 2054,
+                      "name": "_feeTakers",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2027,
+                      "src": "719:10:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                        "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                      }
+                    },
+                    "id": 2056,
+                    "indexExpression": {
+                      "id": 2055,
+                      "name": "index",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2046,
+                      "src": "730:5:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "719:17:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FeeTaker_$2023_storage",
+                      "typeString": "struct FeeTakersERC20.FeeTaker storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 2053,
+                  "id": 2057,
+                  "nodeType": "Return",
+                  "src": "712:24:13"
+                }
+              ]
+            },
+            "functionSelector": "87bca547",
+            "id": 2059,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 2049,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 2048,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 46,
+                  "src": "666:9:13"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "666:9:13"
+              }
+            ],
+            "name": "getFeeTakerAt",
+            "nameLocation": "628:13:13",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2047,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2046,
+                  "mutability": "mutable",
+                  "name": "index",
+                  "nameLocation": "647:5:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2059,
+                  "src": "642:10:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2045,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "642:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "641:12:13"
+            },
+            "returnParameters": {
+              "id": 2053,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2052,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2059,
+                  "src": "684:15:13",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_FeeTaker_$2023_memory_ptr",
+                    "typeString": "struct FeeTakersERC20.FeeTaker"
+                  },
+                  "typeName": {
+                    "id": 2051,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 2050,
+                      "name": "FeeTaker",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2023,
+                      "src": "684:8:13"
+                    },
+                    "referencedDeclaration": 2023,
+                    "src": "684:8:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FeeTaker_$2023_storage_ptr",
+                      "typeString": "struct FeeTakersERC20.FeeTaker"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "683:17:13"
+            },
+            "scope": 2188,
+            "src": "619:125:13",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2077,
+              "nodeType": "Block",
+              "src": "818:58:13",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "id": 2072,
+                            "name": "addr",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2061,
+                            "src": "854:4:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "id": 2073,
+                            "name": "points",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2063,
+                            "src": "860:6:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "id": 2071,
+                          "name": "FeeTaker",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2023,
+                          "src": "845:8:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_FeeTaker_$2023_storage_ptr_$",
+                            "typeString": "type(struct FeeTakersERC20.FeeTaker storage pointer)"
+                          }
+                        },
+                        "id": 2074,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "845:22:13",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_FeeTaker_$2023_memory_ptr",
+                          "typeString": "struct FeeTakersERC20.FeeTaker memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_FeeTaker_$2023_memory_ptr",
+                          "typeString": "struct FeeTakersERC20.FeeTaker memory"
+                        }
+                      ],
+                      "expression": {
+                        "id": 2068,
+                        "name": "_feeTakers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2027,
+                        "src": "829:10:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                          "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2070,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "src": "829:15:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage_ptr_$_t_struct$_FeeTaker_$2023_storage_$returns$__$bound_to$_t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage_ptr_$",
+                        "typeString": "function (struct FeeTakersERC20.FeeTaker storage ref[] storage pointer,struct FeeTakersERC20.FeeTaker storage ref)"
+                      }
+                    },
+                    "id": 2075,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "829:39:13",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2076,
+                  "nodeType": "ExpressionStatement",
+                  "src": "829:39:13"
+                }
+              ]
+            },
+            "functionSelector": "ad3be301",
+            "id": 2078,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 2066,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 2065,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 46,
+                  "src": "808:9:13"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "808:9:13"
+              }
+            ],
+            "name": "addToFeeTakers",
+            "nameLocation": "759:14:13",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2064,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2061,
+                  "mutability": "mutable",
+                  "name": "addr",
+                  "nameLocation": "782:4:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2078,
+                  "src": "774:12:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2060,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "774:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2063,
+                  "mutability": "mutable",
+                  "name": "points",
+                  "nameLocation": "793:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2078,
+                  "src": "788:11:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2062,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "788:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "773:27:13"
+            },
+            "returnParameters": {
+              "id": 2067,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "818:0:13"
+            },
+            "scope": 2188,
+            "src": "750:126:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2101,
+              "nodeType": "Block",
+              "src": "940:99:13",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 2094,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 2085,
+                        "name": "_feeTakers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2027,
+                        "src": "951:10:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                          "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2087,
+                      "indexExpression": {
+                        "id": 2086,
+                        "name": "index",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2080,
+                        "src": "962:5:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "951:17:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_FeeTaker_$2023_storage",
+                        "typeString": "struct FeeTakersERC20.FeeTaker storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "baseExpression": {
+                        "id": 2088,
+                        "name": "_feeTakers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2027,
+                        "src": "971:10:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                          "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2093,
+                      "indexExpression": {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 2092,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 2089,
+                            "name": "_feeTakers",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2027,
+                            "src": "982:10:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                              "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                            }
+                          },
+                          "id": 2090,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "length",
+                          "nodeType": "MemberAccess",
+                          "src": "982:17:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "-",
+                        "rightExpression": {
+                          "hexValue": "31",
+                          "id": 2091,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1002:1:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_1_by_1",
+                            "typeString": "int_const 1"
+                          },
+                          "value": "1"
+                        },
+                        "src": "982:21:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "971:33:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_FeeTaker_$2023_storage",
+                        "typeString": "struct FeeTakersERC20.FeeTaker storage ref"
+                      }
+                    },
+                    "src": "951:53:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FeeTaker_$2023_storage",
+                      "typeString": "struct FeeTakersERC20.FeeTaker storage ref"
+                    }
+                  },
+                  "id": 2095,
+                  "nodeType": "ExpressionStatement",
+                  "src": "951:53:13"
+                },
+                {
+                  "expression": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "id": 2096,
+                        "name": "_feeTakers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2027,
+                        "src": "1015:10:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                          "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2098,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "pop",
+                      "nodeType": "MemberAccess",
+                      "src": "1015:14:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypop_nonpayable$_t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage_ptr_$returns$__$bound_to$_t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage_ptr_$",
+                        "typeString": "function (struct FeeTakersERC20.FeeTaker storage ref[] storage pointer)"
+                      }
+                    },
+                    "id": 2099,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1015:16:13",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2100,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1015:16:13"
+                }
+              ]
+            },
+            "functionSelector": "e41515c6",
+            "id": 2102,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 2083,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 2082,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 46,
+                  "src": "930:9:13"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "930:9:13"
+              }
+            ],
+            "name": "removeFromFeeTakers",
+            "nameLocation": "891:19:13",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2081,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2080,
+                  "mutability": "mutable",
+                  "name": "index",
+                  "nameLocation": "916:5:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2102,
+                  "src": "911:10:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2079,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "911:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "910:12:13"
+            },
+            "returnParameters": {
+              "id": 2084,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "940:0:13"
+            },
+            "scope": 2188,
+            "src": "882:157:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2186,
+              "nodeType": "Block",
+              "src": "1090:587:13",
+              "statements": [
+                {
+                  "assignments": [
+                    2108
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2108,
+                      "mutability": "mutable",
+                      "name": "feePoints",
+                      "nameLocation": "1106:9:13",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2186,
+                      "src": "1101:14:13",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 2107,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1101:4:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2109,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1101:14:13"
+                },
+                {
+                  "assignments": [
+                    2111
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2111,
+                      "mutability": "mutable",
+                      "name": "feePerPoint",
+                      "nameLocation": "1131:11:13",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2186,
+                      "src": "1126:16:13",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 2110,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1126:4:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2112,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1126:16:13"
+                },
+                {
+                  "body": {
+                    "id": 2130,
+                    "nodeType": "Block",
+                    "src": "1194:60:13",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 2128,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "id": 2123,
+                            "name": "feePoints",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2108,
+                            "src": "1209:9:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "+=",
+                          "rightHandSide": {
+                            "expression": {
+                              "baseExpression": {
+                                "id": 2124,
+                                "name": "_feeTakers",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 2027,
+                                "src": "1222:10:13",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                                  "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                                }
+                              },
+                              "id": 2126,
+                              "indexExpression": {
+                                "id": 2125,
+                                "name": "i",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 2114,
+                                "src": "1233:1:13",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1222:13:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_FeeTaker_$2023_storage",
+                                "typeString": "struct FeeTakersERC20.FeeTaker storage ref"
+                              }
+                            },
+                            "id": 2127,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "points",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2022,
+                            "src": "1222:20:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "1209:33:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 2129,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1209:33:13"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2119,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 2116,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2114,
+                      "src": "1165:1:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "expression": {
+                        "id": 2117,
+                        "name": "_feeTakers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2027,
+                        "src": "1169:10:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                          "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2118,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "src": "1169:17:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1165:21:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 2131,
+                  "initializationExpression": {
+                    "assignments": [
+                      2114
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 2114,
+                        "mutability": "mutable",
+                        "name": "i",
+                        "nameLocation": "1162:1:13",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 2131,
+                        "src": "1157:6:13",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 2113,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1157:4:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 2115,
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "1157:6:13"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "id": 2121,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "1188:4:13",
+                      "subExpression": {
+                        "id": 2120,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2114,
+                        "src": "1188:1:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2122,
+                    "nodeType": "ExpressionStatement",
+                    "src": "1188:4:13"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "1153:101:13"
+                },
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2134,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 2132,
+                      "name": "feePoints",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2108,
+                      "src": "1267:9:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": ">",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 2133,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1279:1:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "1267:13:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 2142,
+                  "nodeType": "IfStatement",
+                  "src": "1264:74:13",
+                  "trueBody": {
+                    "id": 2141,
+                    "nodeType": "Block",
+                    "src": "1282:56:13",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 2139,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "id": 2135,
+                            "name": "feePerPoint",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2111,
+                            "src": "1297:11:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "commonType": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "id": 2138,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "leftExpression": {
+                              "id": 2136,
+                              "name": "fee",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2104,
+                              "src": "1311:3:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "nodeType": "BinaryOperation",
+                            "operator": "/",
+                            "rightExpression": {
+                              "id": 2137,
+                              "name": "feePoints",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2108,
+                              "src": "1317:9:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "src": "1311:15:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "1297:29:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 2140,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1297:29:13"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "body": {
+                    "id": 2184,
+                    "nodeType": "Block",
+                    "src": "1392:278:13",
+                    "statements": [
+                      {
+                        "assignments": [
+                          2155
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 2155,
+                            "mutability": "mutable",
+                            "name": "feeTaker",
+                            "nameLocation": "1424:8:13",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 2184,
+                            "src": "1407:25:13",
+                            "stateVariable": false,
+                            "storageLocation": "storage",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_FeeTaker_$2023_storage_ptr",
+                              "typeString": "struct FeeTakersERC20.FeeTaker"
+                            },
+                            "typeName": {
+                              "id": 2154,
+                              "nodeType": "UserDefinedTypeName",
+                              "pathNode": {
+                                "id": 2153,
+                                "name": "FeeTaker",
+                                "nodeType": "IdentifierPath",
+                                "referencedDeclaration": 2023,
+                                "src": "1407:8:13"
+                              },
+                              "referencedDeclaration": 2023,
+                              "src": "1407:8:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_FeeTaker_$2023_storage_ptr",
+                                "typeString": "struct FeeTakersERC20.FeeTaker"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 2159,
+                        "initialValue": {
+                          "baseExpression": {
+                            "id": 2156,
+                            "name": "_feeTakers",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2027,
+                            "src": "1435:10:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                              "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                            }
+                          },
+                          "id": 2158,
+                          "indexExpression": {
+                            "id": 2157,
+                            "name": "i",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2144,
+                            "src": "1446:1:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1435:13:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_FeeTaker_$2023_storage",
+                            "typeString": "struct FeeTakersERC20.FeeTaker storage ref"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "1407:41:13"
+                      },
+                      {
+                        "assignments": [
+                          2161
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 2161,
+                            "mutability": "mutable",
+                            "name": "feeTakerAddr",
+                            "nameLocation": "1471:12:13",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 2184,
+                            "src": "1463:20:13",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            "typeName": {
+                              "id": 2160,
+                              "name": "address",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "1463:7:13",
+                              "stateMutability": "nonpayable",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 2164,
+                        "initialValue": {
+                          "expression": {
+                            "id": 2162,
+                            "name": "feeTaker",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2155,
+                            "src": "1486:8:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_FeeTaker_$2023_storage_ptr",
+                              "typeString": "struct FeeTakersERC20.FeeTaker storage pointer"
+                            }
+                          },
+                          "id": 2163,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "addr",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2020,
+                          "src": "1486:13:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "1463:36:13"
+                      },
+                      {
+                        "assignments": [
+                          2166
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 2166,
+                            "mutability": "mutable",
+                            "name": "toSend",
+                            "nameLocation": "1519:6:13",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 2184,
+                            "src": "1514:11:13",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "typeName": {
+                              "id": 2165,
+                              "name": "uint",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "1514:4:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 2171,
+                        "initialValue": {
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 2170,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "expression": {
+                              "id": 2167,
+                              "name": "feeTaker",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2155,
+                              "src": "1528:8:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_FeeTaker_$2023_storage_ptr",
+                                "typeString": "struct FeeTakersERC20.FeeTaker storage pointer"
+                              }
+                            },
+                            "id": 2168,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "points",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2022,
+                            "src": "1528:15:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "*",
+                          "rightExpression": {
+                            "id": 2169,
+                            "name": "feePerPoint",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2111,
+                            "src": "1546:11:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "1528:29:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "1514:43:13"
+                      },
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "id": 2175,
+                              "name": "feeTakerAddr",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2161,
+                              "src": "1588:12:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            {
+                              "id": 2176,
+                              "name": "toSend",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2166,
+                              "src": "1602:6:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "expression": {
+                              "id": 2172,
+                              "name": "_token",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2007,
+                              "src": "1572:6:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_IERC20_$1496",
+                                "typeString": "contract IERC20"
+                              }
+                            },
+                            "id": 2174,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "transfer",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 1445,
+                            "src": "1572:15:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
+                              "typeString": "function (address,uint256) external returns (bool)"
+                            }
+                          },
+                          "id": 2177,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1572:37:13",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "id": 2178,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1572:37:13"
+                      },
+                      {
+                        "eventCall": {
+                          "arguments": [
+                            {
+                              "id": 2180,
+                              "name": "feeTakerAddr",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2161,
+                              "src": "1637:12:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            {
+                              "id": 2181,
+                              "name": "toSend",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2166,
+                              "src": "1651:6:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "id": 2179,
+                            "name": "FeeSent",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2033,
+                            "src": "1629:7:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                              "typeString": "function (address,uint256)"
+                            }
+                          },
+                          "id": 2182,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1629:29:13",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 2183,
+                        "nodeType": "EmitStatement",
+                        "src": "1624:34:13"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2149,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 2146,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2144,
+                      "src": "1360:1:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "id": 2147,
+                        "name": "getFeeTakersLength",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2044,
+                        "src": "1364:18:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_internal_view$__$returns$_t_uint256_$",
+                          "typeString": "function () view returns (uint256)"
+                        }
+                      },
+                      "id": 2148,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1364:20:13",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1360:24:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 2185,
+                  "initializationExpression": {
+                    "assignments": [
+                      2144
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 2144,
+                        "mutability": "mutable",
+                        "name": "i",
+                        "nameLocation": "1357:1:13",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 2185,
+                        "src": "1352:6:13",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 2143,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1352:4:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 2145,
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "1352:6:13"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "id": 2151,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "1386:4:13",
+                      "subExpression": {
+                        "id": 2150,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2144,
+                        "src": "1386:1:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2152,
+                    "nodeType": "ExpressionStatement",
+                    "src": "1386:4:13"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "1348:322:13"
+                }
+              ]
+            },
+            "id": 2187,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_distributeFee",
+            "nameLocation": "1056:14:13",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2105,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2104,
+                  "mutability": "mutable",
+                  "name": "fee",
+                  "nameLocation": "1076:3:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2187,
+                  "src": "1071:8:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2103,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1071:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1070:10:13"
+            },
+            "returnParameters": {
+              "id": 2106,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1090:0:13"
+            },
+            "scope": 2188,
+            "src": "1047:630:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2189,
+        "src": "171:1509:13",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1648:13"
+  },
+  "legacyAST": {
+    "absolutePath": "luk1529_solidity/contracts/fee/FeeTakersERC20.sol",
+    "exportedSymbols": {
+      "Context": [
+        1962
+      ],
+      "FeeTakersERC20": [
+        2188
+      ],
+      "IERC20": [
+        1496
+      ],
+      "Ownable": [
+        104
+      ]
+    },
+    "id": 2189,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2000,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:13"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/access/Ownable.sol",
+        "file": "@openzeppelin/contracts/access/Ownable.sol",
+        "id": 2001,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2189,
+        "sourceUnit": 105,
+        "src": "57:52:13",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "id": 2002,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2189,
+        "sourceUnit": 1497,
+        "src": "111:56:13",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 2003,
+              "name": "Ownable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 104,
+              "src": "207:7:13"
+            },
+            "id": 2004,
+            "nodeType": "InheritanceSpecifier",
+            "src": "207:7:13"
+          }
+        ],
+        "canonicalName": "FeeTakersERC20",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 2188,
+        "linearizedBaseContracts": [
+          2188,
+          104,
+          1962
+        ],
+        "name": "FeeTakersERC20",
+        "nameLocation": "189:14:13",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 2007,
+            "mutability": "mutable",
+            "name": "_token",
+            "nameLocation": "228:6:13",
+            "nodeType": "VariableDeclaration",
+            "scope": 2188,
+            "src": "221:13:13",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IERC20_$1496",
+              "typeString": "contract IERC20"
+            },
+            "typeName": {
+              "id": 2006,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 2005,
+                "name": "IERC20",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 1496,
+                "src": "221:6:13"
+              },
+              "referencedDeclaration": 1496,
+              "src": "221:6:13",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IERC20_$1496",
+                "typeString": "contract IERC20"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2017,
+              "nodeType": "Block",
+              "src": "269:33:13",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 2015,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 2013,
+                      "name": "_token",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2007,
+                      "src": "280:6:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$1496",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 2014,
+                      "name": "token",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2010,
+                      "src": "289:5:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$1496",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "src": "280:14:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$1496",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "id": 2016,
+                  "nodeType": "ExpressionStatement",
+                  "src": "280:14:13"
+                }
+              ]
+            },
+            "id": 2018,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2011,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2010,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "262:5:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2018,
+                  "src": "255:12:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$1496",
+                    "typeString": "contract IERC20"
+                  },
+                  "typeName": {
+                    "id": 2009,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 2008,
+                      "name": "IERC20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1496,
+                      "src": "255:6:13"
+                    },
+                    "referencedDeclaration": 1496,
+                    "src": "255:6:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$1496",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "254:14:13"
+            },
+            "returnParameters": {
+              "id": 2012,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "269:0:13"
+            },
+            "scope": 2188,
+            "src": "243:59:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "canonicalName": "FeeTakersERC20.FeeTaker",
+            "id": 2023,
+            "members": [
+              {
+                "constant": false,
+                "id": 2020,
+                "mutability": "mutable",
+                "name": "addr",
+                "nameLocation": "345:4:13",
+                "nodeType": "VariableDeclaration",
+                "scope": 2023,
+                "src": "337:12:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2019,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "337:7:13",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2022,
+                "mutability": "mutable",
+                "name": "points",
+                "nameLocation": "365:6:13",
+                "nodeType": "VariableDeclaration",
+                "scope": 2023,
+                "src": "360:11:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2021,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "360:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "FeeTaker",
+            "nameLocation": "317:8:13",
+            "nodeType": "StructDefinition",
+            "scope": 2188,
+            "src": "310:69:13",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 2027,
+            "mutability": "mutable",
+            "name": "_feeTakers",
+            "nameLocation": "396:10:13",
+            "nodeType": "VariableDeclaration",
+            "scope": 2188,
+            "src": "385:21:13",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+              "typeString": "struct FeeTakersERC20.FeeTaker[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 2025,
+                "nodeType": "UserDefinedTypeName",
+                "pathNode": {
+                  "id": 2024,
+                  "name": "FeeTaker",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 2023,
+                  "src": "385:8:13"
+                },
+                "referencedDeclaration": 2023,
+                "src": "385:8:13",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_FeeTaker_$2023_storage_ptr",
+                  "typeString": "struct FeeTakersERC20.FeeTaker"
+                }
+              },
+              "id": 2026,
+              "nodeType": "ArrayTypeName",
+              "src": "385:10:13",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage_ptr",
+                "typeString": "struct FeeTakersERC20.FeeTaker[]"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "anonymous": false,
+            "id": 2033,
+            "name": "FeeSent",
+            "nameLocation": "421:7:13",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2032,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2029,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "437:2:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2033,
+                  "src": "429:10:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2028,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "429:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2031,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "446:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2033,
+                  "src": "441:11:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2030,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "441:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "428:25:13"
+            },
+            "src": "415:39:13"
+          },
+          {
+            "body": {
+              "id": 2043,
+              "nodeType": "Block",
+              "src": "570:43:13",
+              "statements": [
+                {
+                  "expression": {
+                    "expression": {
+                      "id": 2040,
+                      "name": "_feeTakers",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2027,
+                      "src": "588:10:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                        "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                      }
+                    },
+                    "id": 2041,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "src": "588:17:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 2039,
+                  "id": 2042,
+                  "nodeType": "Return",
+                  "src": "581:24:13"
+                }
+              ]
+            },
+            "functionSelector": "a19ab0e0",
+            "id": 2044,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 2036,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 2035,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 46,
+                  "src": "546:9:13"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "546:9:13"
+              }
+            ],
+            "name": "getFeeTakersLength",
+            "nameLocation": "513:18:13",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2034,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "531:2:13"
+            },
+            "returnParameters": {
+              "id": 2039,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2038,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2044,
+                  "src": "564:4:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2037,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "564:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "563:6:13"
+            },
+            "scope": 2188,
+            "src": "504:109:13",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2058,
+              "nodeType": "Block",
+              "src": "701:43:13",
+              "statements": [
+                {
+                  "expression": {
+                    "baseExpression": {
+                      "id": 2054,
+                      "name": "_feeTakers",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2027,
+                      "src": "719:10:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                        "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                      }
+                    },
+                    "id": 2056,
+                    "indexExpression": {
+                      "id": 2055,
+                      "name": "index",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2046,
+                      "src": "730:5:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "719:17:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FeeTaker_$2023_storage",
+                      "typeString": "struct FeeTakersERC20.FeeTaker storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 2053,
+                  "id": 2057,
+                  "nodeType": "Return",
+                  "src": "712:24:13"
+                }
+              ]
+            },
+            "functionSelector": "87bca547",
+            "id": 2059,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 2049,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 2048,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 46,
+                  "src": "666:9:13"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "666:9:13"
+              }
+            ],
+            "name": "getFeeTakerAt",
+            "nameLocation": "628:13:13",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2047,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2046,
+                  "mutability": "mutable",
+                  "name": "index",
+                  "nameLocation": "647:5:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2059,
+                  "src": "642:10:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2045,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "642:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "641:12:13"
+            },
+            "returnParameters": {
+              "id": 2053,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2052,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2059,
+                  "src": "684:15:13",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_FeeTaker_$2023_memory_ptr",
+                    "typeString": "struct FeeTakersERC20.FeeTaker"
+                  },
+                  "typeName": {
+                    "id": 2051,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 2050,
+                      "name": "FeeTaker",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2023,
+                      "src": "684:8:13"
+                    },
+                    "referencedDeclaration": 2023,
+                    "src": "684:8:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FeeTaker_$2023_storage_ptr",
+                      "typeString": "struct FeeTakersERC20.FeeTaker"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "683:17:13"
+            },
+            "scope": 2188,
+            "src": "619:125:13",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2077,
+              "nodeType": "Block",
+              "src": "818:58:13",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "id": 2072,
+                            "name": "addr",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2061,
+                            "src": "854:4:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "id": 2073,
+                            "name": "points",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2063,
+                            "src": "860:6:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "id": 2071,
+                          "name": "FeeTaker",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2023,
+                          "src": "845:8:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_FeeTaker_$2023_storage_ptr_$",
+                            "typeString": "type(struct FeeTakersERC20.FeeTaker storage pointer)"
+                          }
+                        },
+                        "id": 2074,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "845:22:13",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_FeeTaker_$2023_memory_ptr",
+                          "typeString": "struct FeeTakersERC20.FeeTaker memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_FeeTaker_$2023_memory_ptr",
+                          "typeString": "struct FeeTakersERC20.FeeTaker memory"
+                        }
+                      ],
+                      "expression": {
+                        "id": 2068,
+                        "name": "_feeTakers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2027,
+                        "src": "829:10:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                          "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2070,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "src": "829:15:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage_ptr_$_t_struct$_FeeTaker_$2023_storage_$returns$__$bound_to$_t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage_ptr_$",
+                        "typeString": "function (struct FeeTakersERC20.FeeTaker storage ref[] storage pointer,struct FeeTakersERC20.FeeTaker storage ref)"
+                      }
+                    },
+                    "id": 2075,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "829:39:13",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2076,
+                  "nodeType": "ExpressionStatement",
+                  "src": "829:39:13"
+                }
+              ]
+            },
+            "functionSelector": "ad3be301",
+            "id": 2078,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 2066,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 2065,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 46,
+                  "src": "808:9:13"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "808:9:13"
+              }
+            ],
+            "name": "addToFeeTakers",
+            "nameLocation": "759:14:13",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2064,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2061,
+                  "mutability": "mutable",
+                  "name": "addr",
+                  "nameLocation": "782:4:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2078,
+                  "src": "774:12:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2060,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "774:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2063,
+                  "mutability": "mutable",
+                  "name": "points",
+                  "nameLocation": "793:6:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2078,
+                  "src": "788:11:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2062,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "788:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "773:27:13"
+            },
+            "returnParameters": {
+              "id": 2067,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "818:0:13"
+            },
+            "scope": 2188,
+            "src": "750:126:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2101,
+              "nodeType": "Block",
+              "src": "940:99:13",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 2094,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 2085,
+                        "name": "_feeTakers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2027,
+                        "src": "951:10:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                          "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2087,
+                      "indexExpression": {
+                        "id": 2086,
+                        "name": "index",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2080,
+                        "src": "962:5:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "951:17:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_FeeTaker_$2023_storage",
+                        "typeString": "struct FeeTakersERC20.FeeTaker storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "baseExpression": {
+                        "id": 2088,
+                        "name": "_feeTakers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2027,
+                        "src": "971:10:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                          "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2093,
+                      "indexExpression": {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 2092,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 2089,
+                            "name": "_feeTakers",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2027,
+                            "src": "982:10:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                              "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                            }
+                          },
+                          "id": 2090,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "length",
+                          "nodeType": "MemberAccess",
+                          "src": "982:17:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "-",
+                        "rightExpression": {
+                          "hexValue": "31",
+                          "id": 2091,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1002:1:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_1_by_1",
+                            "typeString": "int_const 1"
+                          },
+                          "value": "1"
+                        },
+                        "src": "982:21:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "971:33:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_FeeTaker_$2023_storage",
+                        "typeString": "struct FeeTakersERC20.FeeTaker storage ref"
+                      }
+                    },
+                    "src": "951:53:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FeeTaker_$2023_storage",
+                      "typeString": "struct FeeTakersERC20.FeeTaker storage ref"
+                    }
+                  },
+                  "id": 2095,
+                  "nodeType": "ExpressionStatement",
+                  "src": "951:53:13"
+                },
+                {
+                  "expression": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "id": 2096,
+                        "name": "_feeTakers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2027,
+                        "src": "1015:10:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                          "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2098,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "pop",
+                      "nodeType": "MemberAccess",
+                      "src": "1015:14:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypop_nonpayable$_t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage_ptr_$returns$__$bound_to$_t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage_ptr_$",
+                        "typeString": "function (struct FeeTakersERC20.FeeTaker storage ref[] storage pointer)"
+                      }
+                    },
+                    "id": 2099,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1015:16:13",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2100,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1015:16:13"
+                }
+              ]
+            },
+            "functionSelector": "e41515c6",
+            "id": 2102,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 2083,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 2082,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 46,
+                  "src": "930:9:13"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "930:9:13"
+              }
+            ],
+            "name": "removeFromFeeTakers",
+            "nameLocation": "891:19:13",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2081,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2080,
+                  "mutability": "mutable",
+                  "name": "index",
+                  "nameLocation": "916:5:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2102,
+                  "src": "911:10:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2079,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "911:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "910:12:13"
+            },
+            "returnParameters": {
+              "id": 2084,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "940:0:13"
+            },
+            "scope": 2188,
+            "src": "882:157:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2186,
+              "nodeType": "Block",
+              "src": "1090:587:13",
+              "statements": [
+                {
+                  "assignments": [
+                    2108
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2108,
+                      "mutability": "mutable",
+                      "name": "feePoints",
+                      "nameLocation": "1106:9:13",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2186,
+                      "src": "1101:14:13",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 2107,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1101:4:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2109,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1101:14:13"
+                },
+                {
+                  "assignments": [
+                    2111
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2111,
+                      "mutability": "mutable",
+                      "name": "feePerPoint",
+                      "nameLocation": "1131:11:13",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2186,
+                      "src": "1126:16:13",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 2110,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1126:4:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2112,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1126:16:13"
+                },
+                {
+                  "body": {
+                    "id": 2130,
+                    "nodeType": "Block",
+                    "src": "1194:60:13",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 2128,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "id": 2123,
+                            "name": "feePoints",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2108,
+                            "src": "1209:9:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "+=",
+                          "rightHandSide": {
+                            "expression": {
+                              "baseExpression": {
+                                "id": 2124,
+                                "name": "_feeTakers",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 2027,
+                                "src": "1222:10:13",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                                  "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                                }
+                              },
+                              "id": 2126,
+                              "indexExpression": {
+                                "id": 2125,
+                                "name": "i",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 2114,
+                                "src": "1233:1:13",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1222:13:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_FeeTaker_$2023_storage",
+                                "typeString": "struct FeeTakersERC20.FeeTaker storage ref"
+                              }
+                            },
+                            "id": 2127,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "points",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2022,
+                            "src": "1222:20:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "1209:33:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 2129,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1209:33:13"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2119,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 2116,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2114,
+                      "src": "1165:1:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "expression": {
+                        "id": 2117,
+                        "name": "_feeTakers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2027,
+                        "src": "1169:10:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                          "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2118,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "src": "1169:17:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1165:21:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 2131,
+                  "initializationExpression": {
+                    "assignments": [
+                      2114
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 2114,
+                        "mutability": "mutable",
+                        "name": "i",
+                        "nameLocation": "1162:1:13",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 2131,
+                        "src": "1157:6:13",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 2113,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1157:4:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 2115,
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "1157:6:13"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "id": 2121,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "1188:4:13",
+                      "subExpression": {
+                        "id": 2120,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2114,
+                        "src": "1188:1:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2122,
+                    "nodeType": "ExpressionStatement",
+                    "src": "1188:4:13"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "1153:101:13"
+                },
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2134,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 2132,
+                      "name": "feePoints",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2108,
+                      "src": "1267:9:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": ">",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 2133,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1279:1:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "1267:13:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 2142,
+                  "nodeType": "IfStatement",
+                  "src": "1264:74:13",
+                  "trueBody": {
+                    "id": 2141,
+                    "nodeType": "Block",
+                    "src": "1282:56:13",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 2139,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "id": 2135,
+                            "name": "feePerPoint",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2111,
+                            "src": "1297:11:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "commonType": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "id": 2138,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "leftExpression": {
+                              "id": 2136,
+                              "name": "fee",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2104,
+                              "src": "1311:3:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "nodeType": "BinaryOperation",
+                            "operator": "/",
+                            "rightExpression": {
+                              "id": 2137,
+                              "name": "feePoints",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2108,
+                              "src": "1317:9:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "src": "1311:15:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "1297:29:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 2140,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1297:29:13"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "body": {
+                    "id": 2184,
+                    "nodeType": "Block",
+                    "src": "1392:278:13",
+                    "statements": [
+                      {
+                        "assignments": [
+                          2155
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 2155,
+                            "mutability": "mutable",
+                            "name": "feeTaker",
+                            "nameLocation": "1424:8:13",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 2184,
+                            "src": "1407:25:13",
+                            "stateVariable": false,
+                            "storageLocation": "storage",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_FeeTaker_$2023_storage_ptr",
+                              "typeString": "struct FeeTakersERC20.FeeTaker"
+                            },
+                            "typeName": {
+                              "id": 2154,
+                              "nodeType": "UserDefinedTypeName",
+                              "pathNode": {
+                                "id": 2153,
+                                "name": "FeeTaker",
+                                "nodeType": "IdentifierPath",
+                                "referencedDeclaration": 2023,
+                                "src": "1407:8:13"
+                              },
+                              "referencedDeclaration": 2023,
+                              "src": "1407:8:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_FeeTaker_$2023_storage_ptr",
+                                "typeString": "struct FeeTakersERC20.FeeTaker"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 2159,
+                        "initialValue": {
+                          "baseExpression": {
+                            "id": 2156,
+                            "name": "_feeTakers",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2027,
+                            "src": "1435:10:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_FeeTaker_$2023_storage_$dyn_storage",
+                              "typeString": "struct FeeTakersERC20.FeeTaker storage ref[] storage ref"
+                            }
+                          },
+                          "id": 2158,
+                          "indexExpression": {
+                            "id": 2157,
+                            "name": "i",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2144,
+                            "src": "1446:1:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1435:13:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_FeeTaker_$2023_storage",
+                            "typeString": "struct FeeTakersERC20.FeeTaker storage ref"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "1407:41:13"
+                      },
+                      {
+                        "assignments": [
+                          2161
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 2161,
+                            "mutability": "mutable",
+                            "name": "feeTakerAddr",
+                            "nameLocation": "1471:12:13",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 2184,
+                            "src": "1463:20:13",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            "typeName": {
+                              "id": 2160,
+                              "name": "address",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "1463:7:13",
+                              "stateMutability": "nonpayable",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 2164,
+                        "initialValue": {
+                          "expression": {
+                            "id": 2162,
+                            "name": "feeTaker",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2155,
+                            "src": "1486:8:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_FeeTaker_$2023_storage_ptr",
+                              "typeString": "struct FeeTakersERC20.FeeTaker storage pointer"
+                            }
+                          },
+                          "id": 2163,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "addr",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2020,
+                          "src": "1486:13:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "1463:36:13"
+                      },
+                      {
+                        "assignments": [
+                          2166
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 2166,
+                            "mutability": "mutable",
+                            "name": "toSend",
+                            "nameLocation": "1519:6:13",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 2184,
+                            "src": "1514:11:13",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "typeName": {
+                              "id": 2165,
+                              "name": "uint",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "1514:4:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 2171,
+                        "initialValue": {
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 2170,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "expression": {
+                              "id": 2167,
+                              "name": "feeTaker",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2155,
+                              "src": "1528:8:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_FeeTaker_$2023_storage_ptr",
+                                "typeString": "struct FeeTakersERC20.FeeTaker storage pointer"
+                              }
+                            },
+                            "id": 2168,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "points",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2022,
+                            "src": "1528:15:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "*",
+                          "rightExpression": {
+                            "id": 2169,
+                            "name": "feePerPoint",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2111,
+                            "src": "1546:11:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "1528:29:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "1514:43:13"
+                      },
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "id": 2175,
+                              "name": "feeTakerAddr",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2161,
+                              "src": "1588:12:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            {
+                              "id": 2176,
+                              "name": "toSend",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2166,
+                              "src": "1602:6:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "expression": {
+                              "id": 2172,
+                              "name": "_token",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2007,
+                              "src": "1572:6:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_IERC20_$1496",
+                                "typeString": "contract IERC20"
+                              }
+                            },
+                            "id": 2174,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "transfer",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 1445,
+                            "src": "1572:15:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
+                              "typeString": "function (address,uint256) external returns (bool)"
+                            }
+                          },
+                          "id": 2177,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1572:37:13",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "id": 2178,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1572:37:13"
+                      },
+                      {
+                        "eventCall": {
+                          "arguments": [
+                            {
+                              "id": 2180,
+                              "name": "feeTakerAddr",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2161,
+                              "src": "1637:12:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            {
+                              "id": 2181,
+                              "name": "toSend",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2166,
+                              "src": "1651:6:13",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "id": 2179,
+                            "name": "FeeSent",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2033,
+                            "src": "1629:7:13",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                              "typeString": "function (address,uint256)"
+                            }
+                          },
+                          "id": 2182,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1629:29:13",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 2183,
+                        "nodeType": "EmitStatement",
+                        "src": "1624:34:13"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2149,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 2146,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2144,
+                      "src": "1360:1:13",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "id": 2147,
+                        "name": "getFeeTakersLength",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2044,
+                        "src": "1364:18:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_internal_view$__$returns$_t_uint256_$",
+                          "typeString": "function () view returns (uint256)"
+                        }
+                      },
+                      "id": 2148,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1364:20:13",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1360:24:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 2185,
+                  "initializationExpression": {
+                    "assignments": [
+                      2144
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 2144,
+                        "mutability": "mutable",
+                        "name": "i",
+                        "nameLocation": "1357:1:13",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 2185,
+                        "src": "1352:6:13",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 2143,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1352:4:13",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 2145,
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "1352:6:13"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "id": 2151,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "1386:4:13",
+                      "subExpression": {
+                        "id": 2150,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2144,
+                        "src": "1386:1:13",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2152,
+                    "nodeType": "ExpressionStatement",
+                    "src": "1386:4:13"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "1348:322:13"
+                }
+              ]
+            },
+            "id": 2187,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_distributeFee",
+            "nameLocation": "1056:14:13",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2105,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2104,
+                  "mutability": "mutable",
+                  "name": "fee",
+                  "nameLocation": "1076:3:13",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2187,
+                  "src": "1071:8:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2103,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1071:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1070:10:13"
+            },
+            "returnParameters": {
+              "id": 2106,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1090:0:13"
+            },
+            "scope": 2188,
+            "src": "1047:630:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2189,
+        "src": "171:1509:13",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1648:13"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.11+commit.d7f03943.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-01-09T12:40:20.231Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
